@@ -22,6 +22,7 @@ app.post('/api/scanned',async (req,res)=>{
 	let {data}=req.body
 	await db.any('INSERT INTO public.data_test (data) VALUES($1);',[data])
 	console.log(`Storing ${data}`)
+	res.sendStatus(200)
 })
 
 app.listen(process.env.PORT || 3000, function() {
