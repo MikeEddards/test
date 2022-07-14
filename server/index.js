@@ -15,7 +15,7 @@ db.connect().then(res=>{
 const app = express();
 app.use(express.json())
 app.get('/', (req,res)=>{
-	res.send("<h1>Hello There</h1>")
+	res.send("<h1>_Hello There_</h1>")
 });
 app.post('/api/scanned',async (req,res)=>{
 	let {data}=req.body
