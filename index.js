@@ -12,7 +12,7 @@ const app = express();
 // app.use(bodyParser.json());
 
 app.use('/', (req,res)=>{
-	console.log('here')
+	res.send("<h1>Hello There</h1>")
 });
 
 app.listen(process.env.PORT || 3000, function() {
