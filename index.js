@@ -15,8 +15,12 @@ db.connect().then(res=>{
 
 const app = express();
 app.use(express.json())
-app.get('/', (req,res)=>{
-	res.send("<h1>_Hello There_</h1>")
+app.get('/',async (req,res)=>{
+	let dataList = await db.any("SELECT * FROM public.data_test;")
+	let dataSend = dataList.map(item=>{
+		return `<h1>${item.data}</h1>`
+	})
+	res.send(dataSend.join(''))
 });
 app.post('/api/scanned',async (req,res)=>{
 	let {data}=req.body
